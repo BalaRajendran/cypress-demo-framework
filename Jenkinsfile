@@ -38,7 +38,7 @@ pipeline {
 
     //The stage directive goes in the stages section and should contain a steps section, an optional agent section, 
     //or other stage-specific directives. Practically speaking, all of the real work done by a Pipeline will be wrapped
-    //in one or more stage directives.
+    //in one or more stage directives. cypress run --headless
     stages {
         
         stage('Build'){
@@ -51,7 +51,7 @@ pipeline {
         stage('Testing') {
             steps {
                 sh "npm i"
-                sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
+                sh "npx cypress run --browser ${BROWSER} --spec ${SPEC} --headless"
             }
         }
         
